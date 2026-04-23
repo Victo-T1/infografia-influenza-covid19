@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infografía: Enfermedades Respiratorias Agudas – Influenza y COVID-19</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;900&family=Source+Sans+3:wght@400;600&display=swap');
+
+  :root {
+    --azul-oscuro: #0B2545;
+    --azul-med: #1368AA;
+    --azul-claro: #4EAED9;
+    --teal: #1D9E75;
+    --teal-claro: #5DCAA5;
+    --coral: #D85A30;
+    --coral-claro: #F0997B;
+    --ambar: #BA7517;
+    --ambar-claro: #EF9F27;
+    --violeta: #534AB7;
+    --violeta-claro: #AFA9EC;
+    --gris: #F4F5F7;
+    --gris-med: #DDE1E7;
+    --gris-oscuro: #4A4E58;
+    --blanco: #FFFFFF;
+    --rojo: #A32D2D;
+    --verde: #3B6D11;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Sans 3', Arial, sans-serif;
+    background: #EEF2F7;
+    color: #1A1E2A;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, var(--azul-oscuro) 0%, var(--azul-med) 60%, var(--azul-claro) 100%);
+    border-radius: 16px;
+    padding: 32px 40px;
+    margin-bottom: 18px;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .header h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+  }
+
+  .header h1 span { color: #7FDFFF; }
+
+  .header-sub {
+    font-size: 14px;
+    opacity: 0.85;
+    margin-top: 6px;
+  }
+
+  .header-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+  }
+
+  .badge {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .badge-influenza { background: rgba(239,159,39,0.3); color: #FFEAB5; border: 1px solid rgba(239,159,39,0.5); }
+  .badge-covid { background: rgba(87,162,228,0.3); color: #C4E4FF; border: 1px solid rgba(87,162,228,0.5); }
+  .badge-aps { background: rgba(29,158,117,0.3); color: #A8F0D8; border: 1px solid rgba(29,158,117,0.5); }
+
+  /* GRID PRINCIPAL */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .grid-1 { margin-bottom: 14px; }
+
+  /* TARJETAS */
+  .card {
+    background: var(--blanco);
+    border-radius: 12px;
+    padding: 18px 20px;
+    border: 1px solid var(--gris-med);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid;
+  }
+
+  .card-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .card-title {
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  /* COLORES POR SECCIÓN */
+  .sec-azul .card-header { border-color: var(--azul-med); }
+  .sec-azul .card-icon { background: #E6F1FB; color: var(--azul-med); }
+  .sec-azul .card-title { color: var(--azul-oscuro); }
+
+  .sec-teal .card-header { border-color: var(--teal); }
+  .sec-teal .card-icon { background: #E1F5EE; color: var(--teal); }
+  .sec-teal .card-title { color: #085041; }
+
+  .sec-coral .card-header { border-color: var(--coral); }
+  .sec-coral .card-icon { background: #FAECE7; color: var(--coral); }
+  .sec-coral .card-title { color: #4A1B0C; }
+
+  .sec-violeta .card-header { border-color: var(--violeta); }
+  .sec-violeta .card-icon { background: #EEEDFE; color: var(--violeta); }
+  .sec-violeta .card-title { color: #26215C; }
+
+  .sec-ambar .card-header { border-color: var(--ambar); }
+  .sec-ambar .card-icon { background: #FAEEDA; color: var(--ambar); }
+  .sec-ambar .card-title { color: #412402; }
+
+  .sec-verde .card-header { border-color: var(--verde); }
+  .sec-verde .card-icon { background: #EAF3DE; color: var(--verde); }
+  .sec-verde .card-title { color: #173404; }
+
+  .sec-rojo .card-header { border-color: var(--rojo); }
+  .sec-rojo .card-icon { background: #FCEBEB; color: var(--rojo); }
+  .sec-rojo .card-title { color: #501313; }
+
+  /* CONTENIDO */
+  h3 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--gris-oscuro);
+  }
+
+  h3:first-child { margin-top: 0; }
+
+  p, li { font-size: 12px; line-height: 1.55; color: #2A2E38; }
+  ul { padding-left: 14px; }
+  li { margin-bottom: 3px; }
+
+  /* PILLS / TAGS */
+  .pill-row { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+
+  .pill {
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .pill-blue { background: #E6F1FB; color: #0C447C; }
+  .pill-teal { background: #E1F5EE; color: #085041; }
+  .pill-coral { background: #FAECE7; color: #4A1B0C; }
+  .pill-ambar { background: #FAEEDA; color: #412402; }
+  .pill-red { background: #FCEBEB; color: #501313; }
+  .pill-gray { background: #F1EFE8; color: #2C2C2A; }
+  .pill-green { background: #EAF3DE; color: #173404; }
+  .pill-violet { background: #EEEDFE; color: #26215C; }
+
+  /* COMPARACIÓN LADO A LADO */
+  .compare-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .compare-box {
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+
+  .compare-box h4 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .cb-influenza { background: #FAEEDA; }
+  .cb-influenza h4 { color: #412402; }
+  .cb-covid { background: #E6F1FB; }
+  .cb-covid h4 { color: #042C53; }
+
+  /* TABLA */
+  table { width: 100%; border-collapse: collapse; font-size: 11.5px; }
+  th { background: var(--gris); padding: 6px 10px; font-weight: 600; text-align: left; color: var(--gris-oscuro); border-bottom: 1.5px solid var(--gris-med); }
+  td { padding: 5px 10px; border-bottom: 1px solid var(--gris-med); color: #2A2E38; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background: #FAFAFA; }
+
+  /* FLUJOGRAMA */
+  .flujo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .flujo-step {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 11.5px;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+  }
+
+  .flujo-arrow {
+    font-size: 18px;
+    color: var(--gris-oscuro);
+    line-height: 1;
+    margin: 0;
+  }
+
+  .fs-1 { background: #0B2545; color: white; }
+  .fs-2 { background: #1368AA; color: white; }
+  .fs-3 { background: #4EAED9; color: #042C53; }
+  .fs-4 { background: #1D9E75; color: white; }
+  .fs-5 { background: #3B6D11; color: white; }
+  .fs-6 { background: #534AB7; color: white; }
+
+  /* PREVENCIÓN NIVELES */
+  .prev-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  .prev-box {
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .prev-box .nivel {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  .prev-box .title {
+    font-size: 11px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  .prev-box ul { padding-left: 12px; text-align: left; }
+  .prev-box li { font-size: 10.5px; }
+
+  .pb-0 { background: #E6F1FB; }
+  .pb-0 .nivel { color: #0C447C; }
+  .pb-1 { background: #EAF3DE; }
+  .pb-1 .nivel { color: #173404; }
+  .pb-2 { background: #FAEEDA; }
+  .pb-2 .nivel { color: #412402; }
+  .pb-3 { background: #FAECE7; }
+  .pb-3 .nivel { color: #4A1B0C; }
+
+  /* ALERT/NOTA */
+  .nota {
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 11px;
+    margin-top: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .nota-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+  .nota-ges { background: #EEEDFE; color: #26215C; border-left: 3px solid var(--violeta); }
+  .nota-warn { background: #FAEEDA; color: #412402; border-left: 3px solid var(--ambar); }
+  .nota-info { background: #E6F1FB; color: #042C53; border-left: 3px solid var(--azul-med); }
+
+  /* ROL ENFERMERIA */
+  .rol-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+  }
+
+  .rol-box {
+    border-radius: 8px;
+    padding: 10px 12px;
+    border: 1px solid var(--gris-med);
+  }
+
+  .rol-box h4 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-bottom: 6px;
+  }
+
+  .rb-1 { background: #E1F5EE; border-color: #9FE1CB; }
+  .rb-1 h4 { color: #085041; }
+  .rb-2 { background: #E6F1FB; border-color: #B5D4F4; }
+  .rb-2 h4 { color: #042C53; }
+  .rb-3 { background: #EEEDFE; border-color: #CECBF6; }
+  .rb-3 h4 { color: #26215C; }
+
+  /* REFERENCIAS */
+  .refs { font-size: 10.5px; line-height: 1.55; color: var(--gris-oscuro); }
+  .refs li { margin-bottom: 4px; }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 16px;
+    padding: 12px 20px;
+    background: var(--azul-oscuro);
+    border-radius: 10px;
+    color: rgba(255,255,255,0.7);
+    font-size: 10.5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer strong { color: white; }
+
+  /* DEFINICIÓN CASO */
+  .caso-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+
+  .caso-box {
+    border-radius: 8px;
+    padding: 9px 11px;
+    border-left: 3px solid;
+  }
+
+  .caso-box h4 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .caso-box p { font-size: 11px; }
+
+  .cb-sospechoso { background: #FAEEDA; border-color: #EF9F27; }
+  .cb-sospechoso h4 { color: #633806; }
+  .cb-probable { background: #FAECE7; border-color: #D85A30; }
+  .cb-probable h4 { color: #4A1B0C; }
+  .cb-confirmado { background: #FCEBEB; border-color: #A32D2D; }
+  .cb-confirmado h4 { color: #501313; }
+
+  /* SEPARATOR LINE */
+  .sec-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--azul-med);
+    margin-bottom: 8px;
+    margin-top: 6px;
+    padding-left: 2px;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--gris-med);
+    margin: 4px 0 10px;
+  }
+
+  /* INLINE MINI STAT */
+  .mini-stat-row {
+    display: flex;
+    gap: 8px;
+    margin: 8px 0 4px;
+    flex-wrap: wrap;
+  }
+
+  .mini-stat {
+    border-radius: 7px;
+    padding: 6px 10px;
+    flex: 1;
+    min-width: 80px;
+  }
+
+  .mini-stat .val {
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .mini-stat .lbl { font-size: 10px; color: inherit; opacity: 0.75; margin-top: 1px; }
+
+  .ms-blue { background: #E6F1FB; color: #0C447C; }
+  .ms-teal { background: #E1F5EE; color: #085041; }
+  .ms-ambar { background: #FAEEDA; color: #633806; }
+  .ms-red { background: #FCEBEB; color: #791F1F; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <h1>Enfermedades Respiratorias Agudas<br><span>Influenza &amp; COVID-19</span></h1>
+      <p class="header-sub">Atención Primaria de Salud · MINSAL Chile · Rol de Enfermería · Vigilancia Epidemiológica</p>
+    </div>
+    <div class="header-badges">
+      <span class="badge badge-influenza">🦠 Influenza A/B</span>
+      <span class="badge badge-covid">🔵 COVID-19 · SARS-CoV-2</span>
+      <span class="badge badge-aps">🏥 APS · MINSAL 2024</span>
+    </div>
+  </div>
+
+  <!-- FILA 1: DEFINICIÓN + AGENTE CAUSAL -->
+  <div class="sec-label">1 · Definición y agente causal</div>
+  <div class="grid-2">
+
+    <!-- Definición -->
+    <div class="card sec-azul">
+      <div class="card-header">
+        <div class="card-icon">📋</div>
+        <span class="card-title">Definición de la enfermedad</span>
+      </div>
+      <div class="compare-row">
+        <div class="compare-box cb-influenza">
+          <h4>🟡 Influenza</h4>
+          <p style="font-size:11px;">Enfermedad respiratoria aguda contagiosa causada por virus Influenza A y B. Puede generar formas leves con manejo sintomático, o cuadros graves con riesgo de muerte, especialmente en grupos vulnerables (OMS, 2023; MINSAL, 2018).</p>
+        </div>
+        <div class="compare-box cb-covid">
+          <h4>🔵 COVID-19</h4>
+          <p style="font-size:11px;">Enfermedad infecciosa causada por el coronavirus SARS-CoV-2. Identificada en diciembre de 2019 en Wuhan, China. Declarada pandemia por la OMS en marzo 2020. Afecta principalmente el sistema respiratorio (WHO, 2023; MINSAL, 2020).</p>
+        </div>
+      </div>
+      <div class="mini-stat-row">
+        <div class="mini-stat ms-ambar">
+          <div class="val">1–4</div>
+          <div class="lbl">días incubación Influenza</div>
+        </div>
+        <div class="mini-stat ms-blue">
+          <div class="val">2–14</div>
+          <div class="lbl">días incubación COVID-19</div>
+        </div>
+        <div class="mini-stat ms-teal">
+          <div class="val">5–10</div>
+          <div class="lbl">días transmisibilidad Influenza</div>
+        </div>
+        <div class="mini-stat ms-red">
+          <div class="val">10+</div>
+          <div class="lbl">días transmisibilidad COVID-19</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Agente causal -->
+    <div class="card sec-coral">
+      <div class="card-header">
+        <div class="card-icon">🦠</div>
+        <span class="card-title">Agente causal, reservorio y transmisión</span>
+      </div>
+      <div class="compare-row">
+        <div class="compare-box cb-influenza">
+          <h4>🟡 Influenza A/B</h4>
+          <ul>
+            <li>Familia <em>Orthomyxoviridae</em></li>
+            <li>ARN monocatenario, negativosegmentado</li>
+            <li>Tipo A (H1N1, H3N2): riesgo pandémico</li>
+            <li>Tipo B: solo ciclo humano</li>
+            <li><strong>Reservorio:</strong> aves acuáticas silvestres, porcinos, humanos</li>
+            <li><strong>Vía:</strong> gotitas respiratorias, fómites, contacto directo</li>
+          </ul>
+        </div>
+        <div class="compare-box cb-covid">
+          <h4>🔵 SARS-CoV-2</h4>
+          <ul>
+            <li>Familia <em>Coronaviridae</em>, betacoronavirus</li>
+            <li>ARN monocatenario de sentido positivo</li>
+            <li>Proteína Spike (S) → receptor ACE-2</li>
+            <li>Variantes: Alfa, Delta, Ómicron y sublinajes</li>
+            <li><strong>Reservorio:</strong> humanos (posible origen en murciélagos)</li>
+            <li><strong>Vía:</strong> aerosoles, gotitas, contacto con superficies</li>
+          </ul>
+        </div>
+      </div>
+      <h3>Grupos y factores de riesgo</h3>
+      <div class="pill-row">
+        <span class="pill pill-red">Adultos ≥65 años</span>
+        <span class="pill pill-red">Embarazadas</span>
+        <span class="pill pill-ambar">Niños &lt;5 años</span>
+        <span class="pill pill-ambar">Inmunosuprimidos</span>
+        <span class="pill pill-coral">Enf. crónicas (DM, HTA, EPOC)</span>
+        <span class="pill pill-coral">Obesidad IMC ≥40</span>
+        <span class="pill pill-gray">Personal de salud</span>
+        <span class="pill pill-gray">Pueblos indígenas</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FILA 2: CUADRO CLÍNICO + DIAGNÓSTICO -->
+  <div class="sec-label">2 · Cuadro clínico y diagnóstico</div>
+  <div class="grid-2">
+
+    <!-- Cuadro clínico -->
+    <div class="card sec-violeta">
+      <div class="card-header">
+        <div class="card-icon">🩺</div>
+        <span class="card-title">Cuadro clínico</span>
+      </div>
+      <table>
+        <tr>
+          <th>Síntoma</th>
+          <th style="text-align:center;">Influenza</th>
+          <th style="text-align:center;">COVID-19</th>
+        </tr>
+        <tr><td>Fiebre</td><td style="text-align:center;">38–40°C, brusca</td><td style="text-align:center;">38–39°C, variable</td></tr>
+        <tr><td>Tos</td><td style="text-align:center;">Seca, intensa</td><td style="text-align:center;">Seca, persistente</td></tr>
+        <tr><td>Mialgias</td><td style="text-align:center;">Muy marcadas</td><td style="text-align:center;">Moderadas</td></tr>
+        <tr><td>Cefalea</td><td style="text-align:center;">Intensa</td><td style="text-align:center;">Variable</td></tr>
+        <tr><td>Anosmia/Ageusia</td><td style="text-align:center;">Raro</td><td style="text-align:center;">Frecuente</td></tr>
+        <tr><td>Disnea</td><td style="text-align:center;">En formas graves</td><td style="text-align:center;">Característica</td></tr>
+        <tr><td>Sínt. digestivos</td><td style="text-align:center;">Ocasionales</td><td style="text-align:center;">Frecuentes</td></tr>
+      </table>
+      <div class="nota nota-warn" style="margin-top:8px;">
+        <span class="nota-icon">⚠️</span>
+        <span><strong>Criterios de hospitalización:</strong> SatO₂ &lt;93%, dificultad respiratoria, deshidratación, deterioro neurológico, FR &gt;30 rpm o neumonía confirmada (MINSAL, 2024).</span>
+      </div>
+    </div>
+
+    <!-- Diagnóstico -->
+    <div class="card sec-teal">
+      <div class="card-header">
+        <div class="card-icon">🔬</div>
+        <span class="card-title">Diagnóstico</span>
+      </div>
+      <h3>Diagnóstico clínico</h3>
+      <p>Influenza: síndrome febril agudo de inicio brusco con fiebre ≥38°C + tos/odinofagia + mialgias, en contexto epidemiológico. COVID-19: fiebre, tos, disnea, pérdida del olfato/gusto (WHO, 2023).</p>
+
+      <h3 style="margin-top:10px;">Confirmación de laboratorio</h3>
+      <table>
+        <tr><th>Método</th><th>Influenza</th><th>COVID-19</th></tr>
+        <tr><td>PCR (Gold Standard)</td><td>✅ Sí</td><td>✅ Sí</td></tr>
+        <tr><td>Test rápido antigénico</td><td>✅ Sí</td><td>✅ Sí</td></tr>
+        <tr><td>IF (inmunofluorescencia)</td><td>✅ Sí</td><td>—</td></tr>
+        <tr><td>Serología IgG/IgM</td><td>Referencia ISP</td><td>Vigilancia</td></tr>
+        <tr><td>Cultivo viral</td><td>ISP referencia</td><td>ISP referencia</td></tr>
+      </table>
+      <div class="nota nota-info" style="margin-top:8px;">
+        <span class="nota-icon">ℹ️</span>
+        <span>Muestra óptima: hisopado nasofaríngeo bilateral. En APS: test rápido antigénico disponible para orientación diagnóstica en período de epidemia.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FILA 3: PROGRAMA APS -->
+  <div class="sec-label">3 · Programa de control en APS (MINSAL)</div>
+  <div class="grid-1">
+    <div class="card sec-teal">
+      <div class="card-header">
+        <div class="card-icon">🏥</div>
+        <span class="card-title">Programa de control en Atención Primaria de Salud – DIPRECE/MINSAL</span>
+      </div>
+      <div class="grid-3" style="margin:0;">
+        <div>
+          <h3>🎯 Objetivo general</h3>
+          <p>Reducir la morbimortalidad por enfermedades respiratorias agudas mediante la prevención, vigilancia, diagnóstico oportuno, tratamiento y seguimiento en APS, priorizando grupos de mayor riesgo.</p>
+          <h3>📋 Objetivos específicos</h3>
+          <ul>
+            <li>Vacunación de grupos objetivo ≥85% cobertura</li>
+            <li>Detección precoz y manejo ambulatorio</li>
+            <li>Derivación oportuna de casos graves</li>
+            <li>Vigilancia epidemiológica continua</li>
+            <li>Educación y comunicación de riesgo</li>
+          </ul>
+        </div>
+        <div>
+          <h3>👥 Cobertura – Grupos objetivo vacunación 2024</h3>
+          <div class="pill-row">
+            <span class="pill pill-teal">Adultos ≥60 años</span>
+            <span class="pill pill-blue">Embarazadas</span>
+            <span class="pill pill-ambar">Niños 6m–5 años</span>
+            <span class="pill pill-coral">Enf. crónicas</span>
+            <span class="pill pill-violet">Personal de salud</span>
+            <span class="pill pill-red">Inmunosuprimidos</span>
+            <span class="pill pill-gray">Estrategia capullo</span>
+          </div>
+          <div class="nota nota-info" style="margin-top:8px;">
+            <span class="nota-icon">🎯</span>
+            <span><strong>Meta 2024:</strong> 85% de cobertura en grupos objetivo. Campaña iniciada 13 marzo 2024 (MINSAL, 2024).</span>
+          </div>
+          <h3>🔄 Vacunación combinada</h3>
+          <p>CAVEI recomienda administración simultánea Influenza + COVID-19 en mayores de 6 meses. En distintos brazos (MINSAL/CAVEI, 2024).</p>
+        </div>
+        <div>
+          <h3>🏗️ Estructura y funciones en APS</h3>
+          <ul>
+            <li><strong>Sala IRA/ERA:</strong> atención respiratoria diferenciada con kinesiólogo y enfermera</li>
+            <li><strong>CESFAM/CECOSF:</strong> triage, atención ambulatoria, vacunación extramuros</li>
+            <li><strong>Delegado de Epidemiología:</strong> vigilancia ENO, notificación EPIVIGILA, gestión de brotes</li>
+            <li><strong>Equipo multidisciplinario:</strong> médico, enfermera, TENS, kinesiólogo, matrona</li>
+            <li><strong>SEREMI de Salud:</strong> supervisión regional, retroalimentación y control de brotes</li>
+          </ul>
+          <div class="nota nota-ges" style="margin-top:8px;">
+            <span class="nota-icon">📌</span>
+            <span><strong>COVID-19:</strong> Sujeto a vigilancia especial. Influenza: No incluida en GES como tal, pero manejo cubierto en APS con gratuidad en FONASA.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FILA 4: VIGILANCIA EPIDEMIOLÓGICA -->
+  <div class="sec-label">4 · Vigilancia epidemiológica y ENO</div>
+  <div class="grid-2">
+
+    <div class="card sec-ambar">
+      <div class="card-header">
+        <div class="card-icon">📊</div>
+        <span class="card-title">Sistema de notificación (ENO) y definición de caso</span>
+      </div>
+      <div class="nota nota-info">
+        <span class="nota-icon">📌</span>
+        <span><strong>Influenza:</strong> ENO según DS Nº7/2019. Notificación semanal (casos centinelas) + inmediata en brotes. <strong>COVID-19:</strong> Vigilancia especial, notificación a través del sistema EPIVIGILA (epi.minsal.cl). Ambas son enfermedades de declaración obligatoria.</span>
+      </div>
+
+      <h3 style="margin-top:10px;">Definición de caso – Influenza</h3>
+      <div class="caso-grid">
+        <div class="caso-box cb-sospechoso">
+          <h4>⚠️ Sospechoso</h4>
+          <p>Persona con fiebre ≥38°C de inicio brusco + tos o dificultad respiratoria, en período de epidemia estacional sin otra causa aparente.</p>
+        </div>
+        <div class="caso-box cb-probable">
+          <h4>🟠 Probable</h4>
+          <p>Caso sospechoso + nexo epidemiológico con caso confirmado o fallecido por influenza en los últimos 7 días.</p>
+        </div>
+        <div class="caso-box cb-confirmado">
+          <h4>🔴 Confirmado</h4>
+          <p>Caso sospechoso o probable con resultado de laboratorio positivo: PCR, IF o cultivo viral positivo para virus Influenza.</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top:10px;">Definición de caso – COVID-19</h3>
+      <div class="caso-grid">
+        <div class="caso-box cb-sospechoso">
+          <h4>⚠️ Sospechoso</h4>
+          <p>Persona con síndrome respiratorio agudo (fiebre, tos, disnea) o anosmia/ageusia de inicio súbito sin otra causa.</p>
+        </div>
+        <div class="caso-box cb-probable">
+          <h4>🟠 Probable</h4>
+          <p>Caso sospechoso con imagen radiológica compatible, o nexo epidemiológico con caso confirmado.</p>
+        </div>
+        <div class="caso-box cb-confirmado">
+          <h4>🔴 Confirmado</h4>
+          <p>PCR-RT positiva para SARS-CoV-2 o test antigénico positivo en persona sintomática (MINSAL, 2022).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card sec-violeta">
+      <div class="card-header">
+        <div class="card-icon">🔄</div>
+        <span class="card-title">Flujograma de notificación ENO</span>
+      </div>
+      <div class="flujo">
+        <div class="flujo-step fs-1">🏥 Establecimiento APS · detección caso sospechoso/confirmado</div>
+        <div class="flujo-arrow">▼</div>
+        <div class="flujo-step fs-2">📋 Médico notificador · ingresa en plataforma EPIVIGILA<br><small style="font-weight:400; font-size:10px;">(inmediata / 24 hrs / semanal según ENO)</small></div>
+        <div class="flujo-arrow">▼</div>
+        <div class="flujo-step fs-3">👤 Delegado de Epidemiología del establecimiento<br><small style="font-size:10px; color:#042C53;">verifica, completa investigación epidemiológica, gestiona toma de muestras</small></div>
+        <div class="flujo-arrow">▼</div>
+        <div class="flujo-step fs-4">🏛️ SEREMI de Salud Regional<br><small style="font-weight:400; font-size:10px;">recibe notificación, análisis local, medidas de control</small></div>
+        <div class="flujo-arrow">▼</div>
+        <div class="flujo-step fs-5">🔬 ISP · Instituto de Salud Pública<br><small style="font-weight:400; font-size:10px;">vigilancia de laboratorio, confirmación, tipificación viral</small></div>
+        <div class="flujo-arrow">▼</div>
+        <div class="flujo-step fs-6">📈 MINSAL · Depto. Epidemiología<br><small style="font-weight:400; font-size:10px;">consolidación nacional, informes semanales, retroalimentación</small></div>
+      </div>
+      <div class="nota nota-info" style="margin-top:10px;">
+        <span class="nota-icon">🔗</span>
+        <span>Sistema EPIVIGILA: <strong>epivigila.minsal.cl</strong> — base nacional, vigilancia caso a caso y centinela.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- VDE - INVESTIGACIÓN DE BROTE -->
+  <div class="grid-1">
+    <div class="card sec-rojo">
+      <div class="card-header">
+        <div class="card-icon">🔍</div>
+        <span class="card-title">VDE – Investigación epidemiológica de brote (IEB)</span>
+      </div>
+      <div class="grid-3" style="margin:0;">
+        <div>
+          <h3>📍 Motivo de investigación</h3>
+          <p>Se activa IEB ante la detección de un <strong>aumento inusual de casos</strong> de enfermedad respiratoria aguda (Influenza/COVID-19) en tiempo, lugar o persona, en exceso respecto al umbral esperado para el período, o ante casos confirmados en institución cerrada (colegio, residencia, hogar de adulto mayor).</p>
+        </div>
+        <div>
+          <h3>🎯 Objetivo general</h3>
+          <p>Caracterizar el brote de enfermedad respiratoria aguda, identificar su fuente y modo de transmisión, y aplicar medidas de prevención y control oportunas para limitar su diseminación y reducir la morbimortalidad asociada.</p>
+        </div>
+        <div>
+          <h3>📌 Objetivos específicos</h3>
+          <ul>
+            <li>Determinar la magnitud y distribución del brote según variables de persona, tiempo y lugar</li>
+            <li>Identificar factores de riesgo de exposición y características de los contactos</li>
+            <li>Establecer el agente etiológico mediante confirmación de laboratorio (PCR/antigénico) en el ISP</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="divider">
+      <h3>👥 Estudio y manejo de contactos</h3>
+      <table>
+        <tr>
+          <th>Tipo de contacto</th>
+          <th>Definición</th>
+          <th>Exámenes</th>
+          <th>Manejo</th>
+        </tr>
+        <tr>
+          <td><strong>Contacto estrecho (CE)</strong></td>
+          <td>Conviviente, cuidador o persona con contacto cara a cara ≥15 min sin mascarilla, a menos de 1 metro</td>
+          <td>PCR/test antigénico si sintomático</td>
+          <td>Vigilancia activa 10 días. Quimioprofilaxis con Oseltamivir en CE de alto riesgo con Influenza confirmada</td>
+        </tr>
+        <tr>
+          <td><strong>Contacto en institución</strong></td>
+          <td>Comparte espacio cerrado con caso índice (sala, residencia, hogar)</td>
+          <td>Test masivo al grupo</td>
+          <td>Aislamiento preventivo, refuerzo vacunación, medidas de higiene respiratoria</td>
+        </tr>
+        <tr>
+          <td><strong>Contacto casual</strong></td>
+          <td>Exposición breve o a más de 1 metro</td>
+          <td>Solo si sintomático</td>
+          <td>Educación en síntomas de alarma y consulta precoz. Sin quimioprofilaxis de rutina</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- FILA 5: PREVENCIÓN -->
+  <div class="sec-label">5 · Prevención de la enfermedad</div>
+  <div class="grid-1">
+    <div class="card sec-verde">
+      <div class="card-header">
+        <div class="card-icon">🛡️</div>
+        <span class="card-title">Niveles de prevención</span>
+      </div>
+      <div class="prev-grid">
+        <div class="prev-box pb-0">
+          <div class="nivel">Promoción</div>
+          <div class="title" style="color:#0C447C;">Promover la salud</div>
+          <ul>
+            <li>Educación comunitaria sobre higiene respiratoria</li>
+            <li>Ventilación de espacios cerrados</li>
+            <li>Lavado de manos frecuente (20 seg)</li>
+            <li>Uso adecuado de mascarilla en grupos de riesgo</li>
+            <li>Estilos de vida saludables (nutrición, actividad física)</li>
+            <li>Campañas comunicacionales MINSAL</li>
+          </ul>
+        </div>
+        <div class="prev-box pb-1">
+          <div class="nivel">Primaria</div>
+          <div class="title" style="color:#173404;">Evitar la enfermedad</div>
+          <ul>
+            <li><strong>Vacunación anual contra Influenza</strong> (grupos objetivo, meta 85%)</li>
+            <li><strong>Vacunación COVID-19</strong> (refuerzo anual grupos priorizados)</li>
+            <li>Quimioprofilaxis con Oseltamivir en contactos de alto riesgo</li>
+            <li>Etiqueta respiratoria al toser/estornudar</li>
+            <li>Distanciamiento físico en período epidémico</li>
+            <li>Restricción de visitas a inmunodeprimidos</li>
+          </ul>
+        </div>
+        <div class="prev-box pb-2">
+          <div class="nivel">Secundaria</div>
+          <div class="title" style="color:#412402;">Diagnóstico y tratamiento precoz</div>
+          <ul>
+            <li>Consulta precoz ante síntomas respiratorios</li>
+            <li>Test rápido antigénico en APS (&lt;48h síntomas)</li>
+            <li>Inicio precoz de Oseltamivir en grupos de riesgo (idealmente &lt;48h)</li>
+            <li>Control en 48 hrs de pacientes ambulatorios de riesgo</li>
+            <li>Vigilancia de contactos estrechos</li>
+            <li>Notificación ENO oportuna</li>
+          </ul>
+        </div>
+        <div class="prev-box pb-3">
+          <div class="nivel">Terciaria</div>
+          <div class="title" style="color:#4A1B0C;">Limitar daño y rehabilitar</div>
+          <ul>
+            <li>Hospitalización oportuna ante criterios de gravedad</li>
+            <li>Manejo de complicaciones: neumonía, SDRA, sobreinfección bacteriana</li>
+            <li>Rehabilitación respiratoria post-COVID (sala ERA/kinesiólogo)</li>
+            <li>Seguimiento de secuelas (COVID-19 prolongado)</li>
+            <li>Apoyo psicosocial y salud mental post-infección grave</li>
+            <li>Reinserción laboral y comunitaria</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FILA 6: TRATAMIENTO -->
+  <div class="sec-label">6 · Normas de tratamiento (MINSAL)</div>
+  <div class="grid-2">
+
+    <div class="card sec-coral">
+      <div class="card-header">
+        <div class="card-icon">💊</div>
+        <span class="card-title">Tratamiento Influenza – MINSAL</span>
+      </div>
+      <h3>Medidas generales (todos los casos)</h3>
+      <div class="pill-row">
+        <span class="pill pill-gray">Reposo</span>
+        <span class="pill pill-gray">Hidratación</span>
+        <span class="pill pill-gray">Paracetamol/Ibuprofeno para fiebre</span>
+        <span class="pill pill-gray">Aislamiento domiciliario 5–7 días</span>
+      </div>
+
+      <h3>Tratamiento antiviral con Oseltamivir</h3>
+      <table>
+        <tr><th>Población</th><th>Indicación</th><th>Dosis y duración</th></tr>
+        <tr><td>Adultos bajo riesgo</td><td>NO se sugiere uso rutinario</td><td>—</td></tr>
+        <tr><td>Adultos alto riesgo</td><td>SE SUGIERE iniciar &lt;48h</td><td>75 mg c/12h × 5 días</td></tr>
+        <tr><td>Embarazadas</td><td>SE RECOMIENDA siempre</td><td>75 mg c/12h × 5 días</td></tr>
+        <tr><td>Niños &gt;1 año</td><td>Alto riesgo: SE SUGIERE</td><td>Según peso (ver tabla dosis)</td></tr>
+        <tr><td>Adultos mayores</td><td>SE SUGIERE por riesgo basal</td><td>75 mg c/12h × 5 días</td></tr>
+        <tr><td>Hospitalizados/graves</td><td>SE RECOMIENDA siempre</td><td>Iniciar antes 96h si grave</td></tr>
+      </table>
+      <p style="font-size:11px; margin-top:5px; color:var(--gris-oscuro);">Alternativa: Zanamivir inhalado (adultos y niños &gt;7 años con intolerancia a Oseltamivir). Ajustar dosis en insuficiencia renal. (MINSAL GPC Influenza 2018).</p>
+    </div>
+
+    <div class="card sec-azul">
+      <div class="card-header">
+        <div class="card-icon">💉</div>
+        <span class="card-title">Tratamiento COVID-19 – MINSAL</span>
+      </div>
+      <h3>Manejo ambulatorio (casos leves)</h3>
+      <ul>
+        <li>Aislamiento domiciliario hasta 48h afebril y mejoría</li>
+        <li>Sintomáticos: paracetamol, antitusígenos, hidratación</li>
+        <li>Control en 48h si factores de riesgo presentes</li>
+        <li>Signos alarma: consultar si SatO₂ &lt;95%, disnea, confusión</li>
+      </ul>
+      <h3>Antivirales (MINSAL 2022–2024)</h3>
+      <table>
+        <tr><th>Fármaco</th><th>Indicación</th></tr>
+        <tr><td>Nirmatrelvir/Ritonavir (Paxlovid)</td><td>Adultos con factores de riesgo grave, inicio &lt;5 días</td></tr>
+        <tr><td>Remdesivir</td><td>Hospitalización + ≥1 factor riesgo sin O₂ suplementario</td></tr>
+        <tr><td>Dexametasona</td><td>Pacientes con O₂ suplementario o ventilación mecánica</td></tr>
+        <tr><td>Anticoagulación</td><td>Profilaxis TVP en pacientes hospitalizados</td></tr>
+      </table>
+      <h3>Poblaciones especiales</h3>
+      <div class="pill-row">
+        <span class="pill pill-blue">Embarazadas: no usar Paxlovid</span>
+        <span class="pill pill-ambar">Niños: según pediatría especializada</span>
+        <span class="pill pill-teal">Inmunosup.: antivirales + monoclonales</span>
+        <span class="pill pill-gray">IRC: ajustar dosis Nirmatrelvir</span>
+      </div>
+      <div class="nota nota-ges" style="margin-top:8px;">
+        <span class="nota-icon">📌</span>
+        <span>COVID-19 grave: No está en GES como programa individual, sin embargo la cobertura hospitalaria y antivirales prioritarios son financiados por FONASA/MINSAL.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FILA 7: ROL ENFERMERÍA -->
+  <div class="sec-label">7 · Rol de enfermería en APS</div>
+  <div class="grid-1">
+    <div class="card sec-teal">
+      <div class="card-header">
+        <div class="card-icon">👩‍⚕️</div>
+        <span class="card-title">Rol de enfermería en APS – Influenza y COVID-19</span>
+      </div>
+      <div class="rol-grid">
+        <div class="rol-box rb-1">
+          <h4>🟢 Promoción, prevención y educación</h4>
+          <ul>
+            <li>Liderar campañas de vacunación en terreno (extramuros, visita domiciliaria)</li>
+            <li>Educación a pacientes y familias sobre higiene respiratoria, etiqueta de tos, ventilación</li>
+            <li>Consejería en estilos de vida saludables para reducir factores de riesgo</li>
+            <li>Capacitación a TENS y comunidad en reconocimiento de signos de alarma</li>
+            <li>Coordinación con otros sectores: educación, municipio, organizaciones comunitarias</li>
+            <li>Elaboración y distribución de material educativo culturalmente adecuado</li>
+          </ul>
+        </div>
+        <div class="rol-box rb-2">
+          <h4>🔵 Seguimiento y control de pacientes</h4>
+          <ul>
+            <li>Triage de pacientes respiratorios en box diferenciado/sala IRA</li>
+            <li>Aplicación de test rápido antigénico y registro en FONASA/HIS</li>
+            <li>Evaluación clínica: saturación, FR, temperatura, signos de alarma</li>
+            <li>Control en 48 hrs de pacientes ambulatorios con factores de riesgo</li>
+            <li>Manejo de medicamentos: administración y educación sobre Oseltamivir</li>
+            <li>Coordinación de derivación oportuna a servicio de urgencia o especialidad</li>
+            <li>Seguimiento de pacientes poscovid con secuelas (sala ERA)</li>
+          </ul>
+        </div>
+        <div class="rol-box rb-3">
+          <h4>🟣 Vigilancia epidemiológica</h4>
+          <ul>
+            <li>Actuar como delegada/o de Epidemiología o apoyar al médico notificador</li>
+            <li>Ingreso y supervisión de notificaciones en EPIVIGILA</li>
+            <li>Identificación y seguimiento activo de contactos estrechos</li>
+            <li>Investigación de brotes en instituciones: escuelas, hogares de AM, servicios</li>
+            <li>Elaboración de informes epidemiológicos para la SEREMI</li>
+            <li>Toma de muestras nasofaríngeas para laboratorio (ISP)</li>
+            <li>Participación en Sala de Situación en Campaña de Invierno</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REFERENCIAS -->
+  <div class="grid-1">
+    <div class="card" style="background:var(--gris);">
+      <div class="card-header" style="border-color: var(--gris-oscuro);">
+        <div class="card-icon" style="background:var(--gris-med); color:var(--gris-oscuro);">📚</div>
+        <span class="card-title" style="color:var(--gris-oscuro);">Referencias bibliográficas</span>
+      </div>
+      <ol class="refs">
+        <li>Ministerio de Salud de Chile (MINSAL). <em>Guía de Práctica Clínica: Prevención, Diagnóstico y Manejo de la Influenza</em>. DIPRECE; 2018. Disponible en: diprece.minsal.cl</li>
+        <li>Ministerio de Salud de Chile (MINSAL). <em>Guía Clínica Influenza</em>. DIPRECE; 2014. Disponible en: minsal.cl/sites/default/files/GUIA-CLINICA-INFLUENZA-2014.pdf</li>
+        <li>Ministerio de Salud de Chile (MINSAL). <em>Campaña de Vacunación contra la Influenza 2024: Lineamientos técnico-operativos</em>. Decreto Exento N°11. Santiago; 2024. Disponible en: minsal.cl</li>
+        <li>Ministerio de Salud de Chile (MINSAL). <em>Actualización de la Definición de Caso Sospechoso, Probable y Confirmado para Vigilancia Epidemiológica de COVID-19</em>. Santiago; 2022. Disponible en: minsal.cl/nuevo-coronavirus-2019-ncov/informe-tecnico</li>
+        <li>Ministerio de Salud de Chile (MINSAL). <em>Especificaciones Técnicas de la Vigilancia Epidemiológica de Enfermedades Transmisibles en APS</em>. RPE N°6. Santiago; 2021. Disponible en: minsal.cl/wp-content/uploads/2021/09/RPE-N%C2%B06...</li>
+        <li>Ministerio de Salud de Chile (MINSAL). <em>Anexo 4: Vigilancia de Enfermedades Transmisibles de Notificación Obligatoria</em>. Orientaciones Técnicas APS. Santiago; 2022. Disponible en: minsal.cl/wp-content/uploads/2019/09/ANEXO-04.pdf</li>
+        <li>DIPRECE/MINSAL. <em>Programas de Salud – Enfermedades Respiratorias</em>. División de Prevención y Control de Enfermedades; 2024. Disponible en: diprece.minsal.cl/programas-de-salud/</li>
+        <li>Organización Mundial de la Salud (OMS/WHO). <em>Influenza (Seasonal): Fact Sheet</em>. Ginebra: WHO; 2023. Disponible en: who.int/news-room/fact-sheets/detail/influenza-(seasonal)</li>
+        <li>World Health Organization (WHO). <em>COVID-19: Vaccines, Treatments and Tests</em>. Ginebra: WHO; 2023. Disponible en: who.int/emergencies/diseases/novel-coronavirus-2019</li>
+        <li>Comité Asesor en Vacunas e Inmunizaciones (CAVEI). <em>Recomendación de administración simultánea de vacunas contra Influenza y SARS-CoV-2</em>. Santiago: MINSAL; febrero 2024.</li>
+        <li>Instituto de Salud Pública (ISP). <em>Vigilancia de Laboratorio – Enfermedades de Notificación Obligatoria</em>. ISP Chile; 2023. Disponible en: ispch.gob.cl/biomedico/vigilancia-de-laboratorio</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span>Infografía educativa · <strong>Enfermedades Respiratorias Agudas: Influenza y COVID-19</strong> · Atención Primaria de Salud</span>
+    <span>Fuente primaria: <strong>DIPRECE/MINSAL Chile</strong> · diprece.minsal.cl · 2024</span>
+  </div>
+
+</div>
+</body>
+</html>
